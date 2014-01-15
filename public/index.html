@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" ng-app="puppetdbApp">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puppet&#7427;oard</title>
+  <link href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/flatly/bootstrap.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/app/css/puppetboard.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/app/css/app.css">
+  <link rel="stylesheet" href="/app/css/animations.css">
+
+  <script src="/app/lib/jquery/jquery-1.10.2.js"></script>
+  <script src="/app/lib/angular/angular.js"></script>
+  <script src="/app/lib/angular/angular-animate.js"></script>
+  <script src="/app/lib/angular/angular-resource.js"></script>
+  <script src="/app/lib/angular/angular-route.js"></script>
+
+  <script src="/app/js/app.js"></script>
+  <script src="/app/js/animations.js"></script>
+  <script src="/app/js/controllers.js"></script>
+  <script src="/app/js/filters.js"></script>
+  <script src="/app/js/services.js"></script>
+
+  <!-- TODO: FIX missing imports -->
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  <script src="//cdn.jsdelivr.net/tablesorter/2.0.3/jquery.tablesorter.min.js"></script>
+</head>
+
+<body>
+  <br /><br />
+  <div style="font-variant:small-caps"  class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <span style="margin-top:-2px;" class="brand">Puppetboard</span>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+                <li class=active><a href="/">Overview</a></li>
+                <li><a href="/nodes">Nodes</a></li>
+                <li><a href="/facts">Facts</a></li>
+                <li><a href="/reports">Reports</a></li>
+                <li><a href="/metrics">Metrics</a></li>
+                <li><a href="/query">Query</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid" style="margin-bottom:55px;">
+    <div class="row-fluid">
+      <div class="container" style="margin-bottom:55px;">    
+
+        <!-- View from angular gets inserted here -->
+        <div class="view-container">
+          <div ng-view class="view-frame"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar navbar-fixed-bottom" style="background-color:rgb(249, 249, 249);">
+    <div class="navbar" style="height:55px;margin-bottom:0;">
+      <div class="container-fluid" style="line-height:55px;">
+        <span style="float:right">Live from PuppetDB.</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  <script src="//cdn.jsdelivr.net/tablesorter/2.0.3/jquery.tablesorter.min.js"></script>
+  <script src="/app/js/moment.js"></script>
+  <script src="/app/js/timestamps.js"></script>
+  <script src="/app/js/tables.js"></script>
+  <script src="/app/js/lists.js"></script>
+</body>
+</html>

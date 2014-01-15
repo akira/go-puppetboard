@@ -1,0 +1,97 @@
+  <div class="row">
+    <div class="span12">
+      <div class="span4 stat">
+       <a href="nodes?status=failed">
+         <h1 class="error">{{stats['failed_nodes']}}
+           <small> nodes </small>
+         </h1>
+       </a>
+       <span>with status failed</span>
+      </div>
+      <div class="span4 stat">
+        <a href="nodes?status=changed">
+          <h1 class="success">{{stats['changed_nodes']}}
+            <small> nodes </small>
+          </h1>
+        </a>
+        <span>with status changed</span>
+      </div>
+      <div class="span4 stat">
+        <a href="nodes?status=unreported">
+          <h1 class="noop">{{stats['unreported_nodes']}}
+            <small> nodes </small>
+          </h1>
+        </a>
+        <span>
+          unreported in the last 2 hours
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <div class="span4 stat">
+        <h1>{{stats['num_nodes']}}</h1>
+        <span>Population</span>
+      </div>
+      <div class="span4 stat">
+        <h1>{{stats['num_resources']}}</h1>
+        <span>Resources managed</span>
+      </div>
+      <div class="span4 stat">
+        <h1>{{stats['average_resource_per_node']}}</h1>
+        <span>Avg. resources/node</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+
+        <h2>Nodes status detail (44)</h2>
+
+    </div>
+  </div>
+
+
+Search: <input ng-model="query">
+<table class='dashboard table table-striped table-condensed'>
+    <thead>
+      <tr>
+      <th style="width:220px;">Status</th>
+      <th style="width:600px;">Hostname</th>
+      <th style="width:120px;"></th>
+      </tr>
+    </thead>
+  <tbody class="searchable">
+
+  <tr ng-repeat="node in nodes | filter:query">
+    <td style="width:30%;" >
+     <a href="#/report/latest/{{node.name}}">
+       <span ng-show="nodeStatus(node) == 'success'" 
+             class="label label-status label-changed">
+          changed
+       </span>
+       <span ng-show="nodeStatus(node) == 'failed'" 
+             class="label label-status label-failed">
+          failed
+       </span>
+       <span ng-show="nodeStatus(node) == 'unreported'" class="label label-status label-unreported">
+          unreported
+       </span>
+     </a>
+        <span ng-show="nodeStatus(node) != 'unreported'" 
+              class="label {{nodeSummaries[node.name]['failures'] > 0 ? 'label-important' : ''}} label-count">{{nodeSummaries[node.name]['failures']}}</span>
+        <span ng-show="nodeStatus(node) != 'unreported'" 
+              class="label label-success label-count">{{nodeSummaries[node.name]['successes']}}</span>
+        <span ng-show="nodeStatus(node) == 'unreported'" 
+              class="label label-time label-unreported">{{node['report_timestamp'] ? node['report_timestamp'] : 'None'}}</span>
+    </td>
+
+    <td><a href="#/nodes/{{node.name}}">{{node.name}}</a></td>
+    <td>
+        <a class="btn btn-small btn-primary btn-lastreport" href="#/reports/latest/{{node.name}}">Latest Report</a>
+    </td>
+  </tr>
+</table>

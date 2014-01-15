@@ -1,0 +1,104 @@
+body {
+  padding-top: 60px;
+}
+th.headerSortUp {
+  position: relative
+}
+th.headerSortDown {
+  position: relative
+}
+th.header {
+  position: relative
+}
+th.header:after {
+  content: "\f0dc"; 
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: #000;
+  font-size: 18px;
+  padding-right: 0.5em;
+  float:right;
+}
+th.headerSortUp:after {
+  content: "\f0de"; 
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: #000;
+  font-size: 18px;
+  padding-right: 0.5em;
+  float:right;
+}
+th.headerSortDown:after {
+  content: "\f0dd"; 
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: #000;
+  font-size: 18px;
+  padding-right: 0.5em;
+  float:right;
+}
+.stat {
+  margin-bottom: 40px;
+}
+.navbar .brand:hover {
+  color: #fff;
+}
+.table tbody tr.error>td {
+  background-color: #f2dede;
+}
+h1.error {
+  color: rgb(223, 46, 27);
+}
+h1.success {
+  color: #18BC9C;
+}
+h1.noop {
+  color:#aaa;
+}
+tr.event {
+  cursor: pointer;
+}
+td.message {
+  padding: 0;
+  border: 0;
+  background-color: #FFFFE9;
+}
+div[id^='message-event'] {
+  display: none;
+  padding: 4px 15px 4px 15px;
+}
+.label-count {
+  width:25px;
+  text-align:center;
+}
+.label-time {
+  width:73px;
+  text-align:center;
+}
+.label-status {
+  width:100px;
+  text-align:center;
+}
+.label-nothing {
+  background-color:#ddd;
+  color:#ddd;
+}
+.label.label-failed {
+  background-color: rgb(231, 76, 60);
+}
+.label.label-changed {
+  background-color: rgb(24, 188, 156);
+}
+.label.label-unreported {
+  background-color: rgb(231, 76, 60);
+  background-color: rgb(129, 145, 146);
+}
+.btn-lastreport {
+  width:100px;
+}
